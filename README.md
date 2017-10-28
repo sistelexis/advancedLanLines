@@ -45,7 +45,7 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 In order to get a more reliable transformation matrix, it is recommended to run this code over multiple chessboard images. Using all the available images I got this result: 
 
-![calibration][writeup_images/cam_calibration.png]
+![calibration](writeup_images/cam_calibration.png)
 
 ### Pipeline (single images)
 
