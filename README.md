@@ -47,7 +47,7 @@ In order to get a more reliable transformation matrix, it is recommended to run 
 
 ![calibration](writeup_images/cam_calibration.png)
 
-### Pipeline (single images)
+### Pipeline (test images)
 
 #### 1. Provide an example of a distortion-corrected image.
 
