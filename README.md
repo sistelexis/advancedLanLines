@@ -14,15 +14,7 @@ The goals / steps of this project are the following:
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
-[//]: # (Image References)
 
-[image1]: ./examples/undistort_output.png "Undistorted"
-[image2]: ./test_images/test1.jpg "Road Transformed"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -53,7 +45,7 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 In order to get a more reliable transformation matrix, it is recommended to run this code over multiple chessboard images. Using all the available images I got this result: 
 
-![calibration][./writeup_images/cam_calibration.png]
+![calibration][writeup_images/cam_calibration.png]
 
 ### Pipeline (single images)
 
@@ -63,7 +55,7 @@ Here we just need to re-use the same code as used on the calibration step.
 The code can be found in `./training.ipynb` under this title:
 **Distortion correction on the test images**
 Here you can see the difference on the test set between the provided images and their undistorted transformation:
-![undistorted_images][./writeup_images/undistorted_images.png]
+![undistorted_images][writeup_images/undistorted_images.png]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
@@ -71,12 +63,12 @@ Under the training notebook (`./training.ipynb`), several approaches can be foun
 **Define gradient function**
 Bellow are several images with labels to provide an overview of what each binary processing code can achieve:
 
-![gradient images][./writeup_images/gradient_images1.png]
-![gradient images][./writeup_images/gradient_images2.png]
-![gradient images][./writeup_images/gradient_images3.png]
-![gradient images][./writeup_images/gradient_images4.png]
-![gradient images][./writeup_images/gradient_images5.png]
-![gradient images][./writeup_images/gradient_images6.png]
+![gradient images][writeup_images/gradient_images1.png]
+![gradient images][writeup_images/gradient_images2.png]
+![gradient images][writeup_images/gradient_images3.png]
+![gradient images][writeup_images/gradient_images4.png]
+![gradient images][writeup_images/gradient_images5.png]
+![gradient images][writeup_images/gradient_images6.png]
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
@@ -87,7 +79,7 @@ The idea is quite simple, we just define the area around the lane, and tranform 
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-![warped_images][./writeup_images/warped_images.png]
+![warped_images][writeup_images/warped_images.png]
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
@@ -95,7 +87,7 @@ This part relies a lot on the quality of the gradient, to get rid of fakes. The 
 **Define functions for lane lines detection**
 Using an histogram, and detecting the arguments of their peak values, gives us and idea where the lines are.Then I defining a region around that first point, we just need to select the mean point (using numpy mean function) for each y value. Then using the array with the points coodinates, numpy function polyfit will return the parameters of the polinomial equation. With that equation we are now able to trace the identified line:
 
-![detect lines_images][./writeup_images/detecLines_images.png]
+![detect lines_images][writeup_images/detecLines_images.png]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
@@ -109,7 +101,7 @@ About the position of the car, the idea is knowing that the camera is centered, 
 
 Bellow is the pictur of the final result. On one of them we can clearly see a bad detection of the right line. I will discuss it after the video, where we can see that the pipeline recovers immediately after that.
 
-![end2end_images][./writeup_images/end2end_images.png]
+![end2end_images][writeup_images/end2end_images.png]
 
 ---
 
@@ -117,7 +109,7 @@ Bellow is the pictur of the final result. On one of them we can clearly see a ba
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./output_images/output_project_video.mp4)
+Here's a [link to my video result](output_images/output_project_video.mp4)
 
 ---
 
@@ -128,7 +120,7 @@ Here's a [link to my video result](./output_images/output_project_video.mp4)
 I consider that my pipeline only has one minor and a small detection issue. None of them are relevent since they are very short in time, and the minor one, does not provide any valuable change to the center of the lane.
 On both situations, it happens when there is a road surface change or when the car crosses shadows areas.
 That same issue is visible on the challenge video with the sames trigers: surface changes and shadows. Although the detection is not good in this video, I believe that it's lack of accuracy wouldn't cause a crash of the autonomous vehicle.
-[link to my challenge video result](./output_images/output_challenge_video.mp4)
+[link to my challenge video result](output_images/output_challenge_video.mp4)
 With the harder challenge video, the high occurence of shadows creates detections issues that most likely would create some possible crashes (or at least the first one, and then the car would stop :) ).
-[link to my harder challenge video result](./output_images/output_harder_challenge_video.mp4)
+[link to my harder challenge video result](output_images/output_harder_challenge_video.mp4)
 A valid solution for that issue would be to keep the information of the lines detection from the previous frame and create an area based on that where the probability of having the following lines would be very high.
