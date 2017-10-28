@@ -87,7 +87,7 @@ This part relies a lot on the quality of the gradient, to get rid of fakes. The 
 **Define functions for lane lines detection**
 Using an histogram, and detecting the arguments of their peak values, gives us and idea where the lines are.Then I defining a region around that first point, we just need to select the mean point (using numpy mean function) for each y value. Then using the array with the points coodinates, numpy function polyfit will return the parameters of the polinomial equation. With that equation we are now able to trace the identified line:
 
-![detect_lines_images](writeup_images/detecLines_images.png)
+![detect_lines_images](writeup_images/detectLines_images.png)
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
