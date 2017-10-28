@@ -55,7 +55,7 @@ Here we just need to re-use the same code as used on the calibration step.
 The code can be found in `./training.ipynb` under this title:
 **Distortion correction on the test images**
 Here you can see the difference on the test set between the provided images and their undistorted transformation:
-![undistorted_images][writeup_images/undistorted_images.png]
+![undistorted_images](writeup_images/undistorted_images.png)
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
@@ -79,7 +79,7 @@ The idea is quite simple, we just define the area around the lane, and tranform 
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-![warped_images][writeup_images/warped_images.png]
+![warped_images](writeup_images/warped_images.png)
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
@@ -87,7 +87,7 @@ This part relies a lot on the quality of the gradient, to get rid of fakes. The 
 **Define functions for lane lines detection**
 Using an histogram, and detecting the arguments of their peak values, gives us and idea where the lines are.Then I defining a region around that first point, we just need to select the mean point (using numpy mean function) for each y value. Then using the array with the points coodinates, numpy function polyfit will return the parameters of the polinomial equation. With that equation we are now able to trace the identified line:
 
-![detect lines_images][writeup_images/detecLines_images.png]
+![detect lines_images](writeup_images/detecLines_images.png)
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
@@ -101,7 +101,7 @@ About the position of the car, the idea is knowing that the camera is centered, 
 
 Bellow is the pictur of the final result. On one of them we can clearly see a bad detection of the right line. I will discuss it after the video, where we can see that the pipeline recovers immediately after that.
 
-![end2end_images][writeup_images/end2end_images.png]
+![end2end_images](writeup_images/end2end_images.png)
 
 ---
 
