@@ -63,12 +63,12 @@ Under the training notebook (`./training.ipynb`), several approaches can be foun
 **Define gradient function**
 Bellow are several images with labels to provide an overview of what each binary processing code can achieve:
 
-![gradient images][writeup_images/gradient_images1.png]
-![gradient images][writeup_images/gradient_images2.png]
-![gradient images][writeup_images/gradient_images3.png]
-![gradient images][writeup_images/gradient_images4.png]
-![gradient images][writeup_images/gradient_images5.png]
-![gradient images][writeup_images/gradient_images6.png]
+![gradient images](writeup_images/gradient_images1.png)
+![gradient images](writeup_images/gradient_images2.png)
+![gradient images](writeup_images/gradient_images3.png)
+![gradient images](writeup_images/gradient_images4.png)
+![gradient images](writeup_images/gradient_images5.png)
+![gradient images](writeup_images/gradient_images6.png)
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
