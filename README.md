@@ -109,7 +109,7 @@ Bellow is the pictur of the final result. On one of them we can clearly see a ba
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my FINAL video result](output_images/output_project_video_corrected.mp4)
+Here's a [link to my FINAL video result](output_images/output_project_video_final.mp4)
 
 ---
 
